@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -19,8 +21,15 @@ public class Mesa {
 	@NotNull(message = "Tiene que haber un número maximo de personas por mesa")
 	private Integer maxCliente;
 	
+	@NotNull(message = "Tiene que haber un número para la mesa")
+	private Integer numMesa;
+	
 	@NotBlank(message = "Tiene que especificar la zona de la mesa")
 	private String zona;
+	
+    @ManyToOne
+    @JoinColumn(name = "reserva_id")
+    private Reserva reserva;
 
 	public Long getId() {
 		return id;
@@ -45,6 +54,16 @@ public class Mesa {
 	public void setZona(String zona) {
 		this.zona = zona;
 	}
+
+	public Integer getNumMesa() {
+		return numMesa;
+	}
+
+	public void setNumMesa(Integer numMesa) {
+		this.numMesa = numMesa;
+	}
+	
+	
 	
 	
 }
