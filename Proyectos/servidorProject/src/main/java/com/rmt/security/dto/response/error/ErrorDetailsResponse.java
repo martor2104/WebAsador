@@ -1,13 +1,13 @@
-package com.dwes.security.dto.response.error;
+package com.rmt.security.dto.response.error;
 
 import java.util.Date;
 
-public class DetailsResponse {
-	 	private Date timestamp;
+public class ErrorDetailsResponse {
+	 private Date timestamp;
 	    private String message;
 	    private String details;
 
-	    public DetailsResponse(Date timestamp, String message, String details) {
+	    public ErrorDetailsResponse(Date timestamp, String message, String details) {
 	        super();
 	        this.timestamp = timestamp;
 	        this.message = message;
@@ -37,5 +37,4 @@ public class DetailsResponse {
 		public void setDetails(String details) {
 			this.details = details;
 		}
-
 }

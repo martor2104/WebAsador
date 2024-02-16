@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.dwes.security.dto.response.user.UsuarioResponse;
+import com.rmt.dto.respuesta.UsuarioResponse;
+
 
 public interface UserService {
 

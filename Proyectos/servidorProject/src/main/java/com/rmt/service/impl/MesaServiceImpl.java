@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.rmt.entities.Cliente;
+import com.rmt.entities.Usuario;
 import com.rmt.entities.Mesa;
 import com.rmt.entities.Reserva;
 import com.rmt.repository.MesaRepository;
@@ -18,8 +18,56 @@ import jakarta.validation.Valid;
 
 @Service
 public class MesaServiceImpl implements MesaService{
+
+	@Override
+	public Mesa agregarMesa(Mesa mesa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Page<Mesa> listarTodasLasMesas(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mesa obtenerMesaPorId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mesa actualizarMesa(Long id, Mesa mesa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void eliminarMesa(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Page<Mesa> listarMesasReservadasPorUsuario(Long usuarioId, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reserva reservarMesa(List<Mesa> mesa, Usuario cliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void cancelarReserva(Long reservaId) {
+		// TODO Auto-generated method stub
+		
+	}
 	
-	@Autowired
+	/*@Autowired
 	private MesaRepository repository;
 	
 	@Autowired
@@ -64,7 +112,7 @@ public class MesaServiceImpl implements MesaService{
 	}
 
 	@Override
-	public Reserva reservarMesa(List<Mesa> mesa, Cliente cliente) {
+	public Reserva reservarMesa(List<Mesa> mesa, Usuario cliente) {
         // Crear una nueva instancia de Reserva
 		Reserva reserva = new Reserva();
 		reserva.setMesas(mesa);
@@ -80,7 +128,7 @@ public class MesaServiceImpl implements MesaService{
 
 		 reservaRepository.delete(reserva);
 		
-	}
+	}*/
 
 	 
 }

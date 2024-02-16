@@ -9,8 +9,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import com.rmt.core.ClientDetails;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
@@ -30,7 +31,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente implements ClientDetails{
+public class Usuario implements UserDetails{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

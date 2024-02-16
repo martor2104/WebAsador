@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 
-import com.rmt.entities.Cliente;
+import com.rmt.entities.Usuario;
 import com.rmt.entities.Role;
 import com.rmt.repository.MesaRepository;
 import com.rmt.repository.ReservaRepository;
@@ -39,7 +39,7 @@ public class InitializationData implements CommandLineRunner{
 		}
 		
 		try {
-			Cliente cliente = new Cliente();
+			Usuario cliente = new Usuario();
 			cliente.setEmail("prueba@gmail.com");
 			cliente.setName("Roberto");
 			cliente.setPassword(passwordEncoder.encode("password123"));

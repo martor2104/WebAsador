@@ -3,13 +3,16 @@ package com.rmt.repository;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.dwes.security.entities.Usuario;
-import com.rmt.entities.Cliente;
+import com.rmt.entities.Usuario;
 
-public interface UserRepository extends JpaRepository<Cliente, Long>{
 
-    Optional<Cliente> findByEmail(String email);
-    Optional<Cliente> findById(Long id);
+
+@Repository
+public interface UserRepository extends JpaRepository<Usuario, Long>{
+
+    Optional<Usuario> findByEmail(String email);
+    Optional<Usuario> findById(Long id);
     Boolean existsByEmail(String email);
 }

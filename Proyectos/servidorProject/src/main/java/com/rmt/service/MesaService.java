@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.rmt.entities.Cliente;
+import com.rmt.entities.Usuario;
 import com.rmt.entities.Mesa;
 import com.rmt.entities.Reserva;
 
@@ -26,7 +26,7 @@ public interface MesaService {
 
     Page<Mesa> listarMesasReservadasPorUsuario(Long usuarioId, Pageable pageable);
 
-    Reserva reservarMesa(List<Mesa> mesa, Cliente cliente);
+    Reserva reservarMesa(List<Mesa> mesa, Usuario cliente);
 
     void cancelarReserva(Long reservaId);
     

@@ -3,6 +3,7 @@ package com.rmt.entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +14,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 @Table(name = "reservas")
+@Entity
 public class Reserva {
 
 	@Id
@@ -32,7 +34,7 @@ public class Reserva {
 	
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private Usuario cliente;
     
     
 
@@ -52,11 +54,11 @@ public class Reserva {
 		this.horario = horario;
 	}
 
-	public Cliente getCliente() {
+	public Usuario getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(Usuario cliente) {
 		this.cliente = cliente;
 	}
 
