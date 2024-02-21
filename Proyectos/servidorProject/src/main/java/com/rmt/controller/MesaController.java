@@ -36,7 +36,7 @@ import com.rmt.service.ReservaService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@RequestMapping("api/vi/mesas")
+@RequestMapping("/api/v1/mesas")
 public class MesaController {
 
 	private static final Logger logger =  LoggerFactory.getLogger(MesaController.class);
@@ -46,6 +46,12 @@ public class MesaController {
 	
 	@Autowired
 	private ReservaService reservaService;
+	
+	@GetMapping("/test")
+	public String test() {
+		return "test";
+	}
+	
 	
     @GetMapping
     @PreAuthorize("hasRole('ROLE_USER') || hasRole('ROLE_ADMIN')")

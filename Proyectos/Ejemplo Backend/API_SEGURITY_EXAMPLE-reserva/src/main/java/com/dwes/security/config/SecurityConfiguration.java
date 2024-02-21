@@ -52,8 +52,7 @@ public class SecurityConfiguration {
                 .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .cors(Customizer.withDefaults()) // Configure CORS here with Customizer
-                .authenticationProvider(authenticationProvider()).addFilterBefore(
-                        jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                ;
         return http.build();
     }
 
