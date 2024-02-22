@@ -1,5 +1,6 @@
 package com.rmt.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -25,9 +26,5 @@ public interface MesaService {
     void eliminarMesa(Long id);
 
     Page<Mesa> listarMesasReservadasPorUsuario(Long usuarioId, Pageable pageable);
-
-    Reserva reservarMesa(List<Mesa> mesa, Usuario cliente);
-
-    void cancelarReserva(Long reservaId);
     
 }

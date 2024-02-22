@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 
-
+@Table(name = "usuarios")
 @Entity
 public class Usuario implements UserDetails {
 	  private static final long serialVersionUID = 1L;

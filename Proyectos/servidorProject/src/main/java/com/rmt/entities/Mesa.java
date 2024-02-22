@@ -1,5 +1,7 @@
 package com.rmt.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,9 +30,8 @@ public class Mesa {
 	private String zona;
 	
     @ManyToOne
-    @JoinColumn(name = "reserva_id")
+    @JoinColumn(name = "reserva_id") // nombre de la columna en la tabla mesa que hace referencia a reserva
     private Reserva reserva;
-
 	public Long getId() {
 		return id;
 	}
@@ -61,9 +62,6 @@ public class Mesa {
 
 	public void setNumMesa(Integer numMesa) {
 		this.numMesa = numMesa;
-	}
-	
-	
-	
+	}	
 	
 }

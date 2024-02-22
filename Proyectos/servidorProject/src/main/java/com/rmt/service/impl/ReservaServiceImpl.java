@@ -6,12 +6,14 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.rmt.entities.Usuario;
 import com.rmt.entities.EstadoReserva;
 import com.rmt.entities.Mesa;
 import com.rmt.entities.Reserva;
+import com.rmt.entities.Usuario;
 import com.rmt.repository.MesaRepository;
 import com.rmt.repository.ReservaRepository;
 import com.rmt.repository.UserRepository;
@@ -89,19 +91,44 @@ public class ReservaServiceImpl implements ReservaService{
 	public List<Reserva> listarTodasLasReservas() {
 		return reservaRepository.findAll();
 	}
-/*
+
 	@Override
-	public List<Reserva> listarReservasPorUsuario(Long usuarioId) {
-		return reservaRepository.findByUsuarioId(usuarioId);
+	public List<Reserva> listarReservasPorUsuario(Long usuarioId, Pageable pageable) {
+	    return reservaRepository.findByCliente(usuarioId, pageable);
 	}
+	
+	/*
+	@Override
+    public Page<Mesa> listarMesasReservadasPorUsuario(Long usuarioId, Pageable pageable) {
+        return mesaRepository.findByReservasClienteId(usuarioId, pageable);
+    }
 
-*/
+    @Override
+    public Reserva reservarMesa(List<Mesa> mesas, Usuario cliente, Integer numClientes, LocalDate diaReserva) {
+
+        Reserva reserva = new Reserva();
+        reserva.setMesas(mesas);
+        reserva.setCliente(cliente);
+        reserva.setEstadoReserva(EstadoReserva.CONFIRMADA);
+        reserva.setNumClientes(numClientes);
+        reserva.setHorario(diaReserva);
+        
+        Reserva reservaGuardada = reservaRepository.save(reserva);
+
+        return reservaGuardada;
+    }
+	*/
+
 
 	@Override
-	public List<Reserva> listarReservasPorUsuario(Long usuarioId) {
+	public Page<Mesa> listarMesasReservadasPorUsuario(Long usuarioId, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+	@Override
+	public Reserva reservarMesa(List<Mesa> mesas, Usuario cliente, Integer numClientes, LocalDate diaReserva) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

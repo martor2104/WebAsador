@@ -30,6 +30,7 @@ public class SecurityConfiguration {
          request
 
         .requestMatchers("/api/v1/mesas/**").permitAll()
+        .requestMatchers("/api/v1/reservas/**").permitAll()
         .anyRequest().authenticated())
         .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
         .cors(Customizer.withDefaults());

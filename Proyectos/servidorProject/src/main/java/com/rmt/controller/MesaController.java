@@ -43,15 +43,7 @@ public class MesaController {
 	
 	@Autowired
 	private MesaService mesaService;
-	
-	@Autowired
-	private ReservaService reservaService;
-	
-	@GetMapping("/test")
-	public String test() {
-		return "test";
-	}
-	
+
 	
     @GetMapping
     @PreAuthorize("hasRole('ROLE_USER') || hasRole('ROLE_ADMIN')")
@@ -62,9 +54,7 @@ public class MesaController {
         logger.info("MesaController :: listarTodasLasMesas");
         Pageable pageable = PageRequest.of(page, size);
         Page<Mesa> mesas = mesaService.listarTodasLasMesas(pageable);
-        
-   
-        
+             
         return new ResponseEntity<>(mesas, HttpStatus.OK);
     }
     
@@ -92,7 +82,8 @@ public class MesaController {
         mesaService.eliminarMesa(id);
     }
     
-    @PostMapping("/{libroId}/reservar")
+    /*
+    @PostMapping("/{mesaId}/reservar")
     @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<?> realizarReserva(@PathVariable Long mesaId, @AuthenticationPrincipal Usuario usuario, Integer numeroPersonas) {
     	  try {
@@ -133,5 +124,5 @@ public class MesaController {
               return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorDetails);
           }
       }
-    
+    */
 }
