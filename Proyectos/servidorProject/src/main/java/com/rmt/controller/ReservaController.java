@@ -67,16 +67,15 @@ public class ReservaController {
 	                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	    }
 
-	    @GetMapping("/listarTodas")
+	    @GetMapping
 		@PreAuthorize("hasRole('ROLE_USER') || hasRole('ROLE_ADMIN')")
 	    public ResponseEntity<List<Reserva>> listarTodasLasReservas() {
 	        List<Reserva> reservas = reservaService.listarTodasLasReservas();
 	        return new ResponseEntity<>(reservas, HttpStatus.OK);
 	    }
 
-	    @GetMapping("/listarPorUsuario/{usuarioId}")
+	    @GetMapping("/usuarios/{usuarioId}")
 	    public ResponseEntity<List<Reserva>> listarReservasPorUsuario(@PathVariable Long usuarioId) {
-	    	
 	    	Pageable pageable = PageRequest.of(1,5);
 	        List<Reserva> reservas = reservaService.listarReservasPorUsuario(usuarioId, pageable);
 	        return new ResponseEntity<>(reservas, HttpStatus.OK);

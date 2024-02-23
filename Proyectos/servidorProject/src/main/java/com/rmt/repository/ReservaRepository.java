@@ -18,9 +18,10 @@ import com.rmt.entities.Reserva;
 public interface ReservaRepository extends JpaRepository<Reserva, Long>{
 
 
+	@Query("SELECT r FROM Reserva r WHERE r.cliente.id = :clienteId")
+    List<Reserva> findByCliente(@Param("clienteId") Long clienteId, Pageable pageable);
 
-	List<Reserva> findByCliente(Long cliente, Pageable pageable);
-	
+	List<Reserva> findByCliente(@Param("clienteId") Long clienteId);
 	/*
 	boolean existsByMesaAndUsuarioAndEstadoReserva(Mesa mesa, Usuario cliente, EstadoReserva estadoReserva);
 	List<Reserva> findByUsuarioId(Long usuarioId);
